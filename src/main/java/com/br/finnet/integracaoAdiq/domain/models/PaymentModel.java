@@ -1,5 +1,7 @@
 package com.br.finnet.integracaoAdiq.domain.models;
 
+import com.br.finnet.integracaoAdiq.domain.enums.CurrencyEnum;
+import com.br.finnet.integracaoAdiq.domain.enums.TransactionTypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +23,11 @@ public class PaymentModel implements Serializable {
     @Column(name = "ID_TRANSACTION")
     private Integer idTransaction;
     @Column(nullable = false)
-    private String transactionType;
+    private TransactionTypeEnum transactionType;
     @Column(nullable = false)
     private Integer amount;
     @Column(nullable = false)
-    private String currencyCode;
+    private CurrencyEnum currencyCode;
     @Column(nullable = false)
     private String productType;
     @Column(nullable = false)

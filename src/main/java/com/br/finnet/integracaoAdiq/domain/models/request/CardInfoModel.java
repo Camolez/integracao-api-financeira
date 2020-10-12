@@ -1,4 +1,4 @@
-package com.br.finnet.integracaoAdiq.domain.models;
+package com.br.finnet.integracaoAdiq.domain.models.request;
 
 
 import lombok.AllArgsConstructor;

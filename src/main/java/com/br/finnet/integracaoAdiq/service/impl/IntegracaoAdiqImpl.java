@@ -1,14 +1,14 @@
 package com.br.finnet.integracaoAdiq.service.impl;
 
 
-import com.br.finnet.integracaoAdiq.domain.models.PaymentModel;
+import com.br.finnet.integracaoAdiq.domain.models.request.PaymentModel;
 import com.br.finnet.integracaoAdiq.domain.repositories.PaymentRepository;
-import com.br.finnet.integracaoAdiq.service.IntegracaoServiceInterf;
+import com.br.finnet.integracaoAdiq.service.IntegracaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class IntegracaoAdiqImpl implements IntegracaoServiceInterf {
+public class IntegracaoAdiqImpl implements IntegracaoService {
 
     private final PaymentRepository paymentRepository;
 

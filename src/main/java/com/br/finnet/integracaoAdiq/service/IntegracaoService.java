@@ -1,9 +1,9 @@
 package com.br.finnet.integracaoAdiq.service;
 
-import com.br.finnet.integracaoAdiq.domain.models.PaymentModel;
+import com.br.finnet.integracaoAdiq.domain.models.request.PaymentModel;
 
 
-public interface IntegracaoServiceInterf {
+public interface IntegracaoService {
 
    Integer solicitarPagamento (PaymentModel paymentModel);
 }

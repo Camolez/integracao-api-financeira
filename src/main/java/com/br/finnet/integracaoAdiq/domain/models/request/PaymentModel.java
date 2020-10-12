@@ -4,6 +4,7 @@ import com.br.finnet.integracaoAdiq.domain.enums.CurrencyEnum;
 import com.br.finnet.integracaoAdiq.domain.enums.ProductTypeEnum;
 import com.br.finnet.integracaoAdiq.domain.enums.TransactionTypeEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,6 +29,7 @@ public class PaymentModel implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "ID_TRANSACTION")
+    @JsonIgnore
     private Integer idTransaction;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

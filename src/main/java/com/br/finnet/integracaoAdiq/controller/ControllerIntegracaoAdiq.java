@@ -30,7 +30,12 @@ public class ControllerIntegracaoAdiq {
     @PostMapping(value = "/requestPayment")
     public ResponseEntity<PaymentModel> requestPayment(PaymentModel paymentModel){
         Integer id = integracaoAdiq.solicitarPagamento(paymentModel);
-        return ResponseEntity.created(ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(id).toUri()).build();
+        return ResponseEntity.created(ServletUriComponentsBuilder.
+                fromCurrentRequest().
+                path("/{id}").
+                buildAndExpand(id).
+                toUri()).
+                build();
     }
     @GetMapping(value = "/findAll")
     public ResponseEntity<List<PaymentModel>> findAllPayments(){

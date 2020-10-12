@@ -1,6 +1,7 @@
 package com.br.finnet.integracaoAdiq.domain.models.request;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,14 +19,15 @@ public class CardInfoModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_CARDINFO")
+    @JsonIgnore
     private Integer idCardInfo;
-    private String vaultId;
-    private String numberToken;
+//    private String vaultId;
+//    private String numberToken;
 //    @Column(nullable = false)
     private String cardholderNme;
-    private String securityCode;
-    private String expirationMonth;
-    private String expirationYear;
+//    private String securityCode;
+//    private String expirationMonth;
+//    private String expirationYear;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "FK_SELLERINFO")
     private SellerInfoModel sellerInfoModel;

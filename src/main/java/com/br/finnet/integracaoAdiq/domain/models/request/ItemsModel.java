@@ -17,9 +17,9 @@ public class ItemsModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idItem;
-    private String id;
-    private String description;
-    private Integer amount;
-    private Double ratePercent;
-    private Integer rateAmount;
+//    private String id;
+//    private String description;
+//    private Integer amount;
+//    private Double ratePercent;
+//    private Integer rateAmount;
 }

@@ -1,6 +1,6 @@
 package com.br.finnet.integracaoAdiq.domain.enums;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum TransactionTypeEnum {
 

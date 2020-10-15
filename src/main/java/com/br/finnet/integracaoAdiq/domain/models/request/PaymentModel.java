@@ -28,10 +28,11 @@ public class PaymentModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "ID_TRANSACTION")
+//    @Column(name = "ID_TRANSACTION")
     @JsonIgnore
-    private Integer idTransaction;
+    private Integer id;
     @Column(nullable = false)
+    @Basic(optional = false)
     @Enumerated(EnumType.STRING)
     private TransactionTypeEnum transactionType;
     @Column(nullable = false)
@@ -48,6 +49,8 @@ public class PaymentModel implements Serializable {
     private String captureType;
     @Column(nullable = false)
     private Boolean recurrent;
+    @Column(nullable = false)
+    private String statusPayment = "ATIVO";
     @JsonFormat(pattern="yyyy-MM-dd")
     @CreationTimestamp
     private LocalDateTime datePayment;

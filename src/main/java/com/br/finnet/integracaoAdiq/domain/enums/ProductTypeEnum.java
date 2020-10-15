@@ -1,9 +1,12 @@
 package com.br.finnet.integracaoAdiq.domain.enums;
 
 public enum ProductTypeEnum {
-
     AVISTA("avista"),
-    PARCELADO("parcelado");
+    DEBITO("debito"),
+    LOJISTA("lojista"),
+    EMISSOR("emissor");
+
+
 
     private String productType;
 

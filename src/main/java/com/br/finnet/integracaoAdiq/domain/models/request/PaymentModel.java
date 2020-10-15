@@ -1,5 +1,6 @@
 package com.br.finnet.integracaoAdiq.domain.models.request;
 
+import com.br.finnet.integracaoAdiq.domain.enums.CaptureTypeEnum;
 import com.br.finnet.integracaoAdiq.domain.enums.CurrencyEnum;
 import com.br.finnet.integracaoAdiq.domain.enums.ProductTypeEnum;
 import com.br.finnet.integracaoAdiq.domain.enums.TransactionTypeEnum;
@@ -46,7 +47,8 @@ public class PaymentModel implements Serializable {
     @Column(nullable = false)
     private Integer installments;
     @Column(nullable = false)
-    private String captureType;
+    @Enumerated(EnumType.STRING)
+    private CaptureTypeEnum captureType;
     @Column(nullable = false)
     private Boolean recurrent;
     @Column(nullable = false)

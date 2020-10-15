@@ -1,5 +1,8 @@
 package com.br.finnet.integracaoAdiq.controller;
 
+import com.br.finnet.integracaoAdiq.domain.enums.CaptureTypeEnum;
+import com.br.finnet.integracaoAdiq.domain.enums.CurrencyEnum;
+import com.br.finnet.integracaoAdiq.domain.enums.TransactionTypeEnum;
 import com.br.finnet.integracaoAdiq.domain.models.request.PaymentModel;
 import com.br.finnet.integracaoAdiq.domain.repositories.PaymentRepository;
 import com.br.finnet.integracaoAdiq.service.impl.ApiAdiqImpl;
@@ -35,9 +38,9 @@ public class ControllerIntegracaoAdiq {
     }
 
     @GetMapping(value = "/findPayment")
-    public ResponseEntity<List<PaymentModel>> findPaymentByField(@RequestParam(required = false, defaultValue = "") String currencyCode,
-                                                                 @RequestParam(required = false, defaultValue = "") String captureType,
-                                                                 @RequestParam(required = false, defaultValue = "") String transactionType){
+    public ResponseEntity<List<PaymentModel>> findPaymentByField(@MatrixVariable(required = false, value = "currencyCode") final CurrencyEnum currencyCode,
+                                                                 @MatrixVariable(required = false, value = "captureType") final CaptureTypeEnum captureType,
+                                                                 @MatrixVariable(required = false, value = "transactionType") final TransactionTypeEnum transactionType){
         return ResponseEntity.ok(integracaoAdiq.findByFilter(currencyCode,captureType, transactionType));
     }
 

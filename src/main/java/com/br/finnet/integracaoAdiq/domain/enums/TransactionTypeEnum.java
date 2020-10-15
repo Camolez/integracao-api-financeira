@@ -1,6 +1,7 @@
 package com.br.finnet.integracaoAdiq.domain.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.springframework.web.bind.annotation.MatrixVariable;
 
 public enum TransactionTypeEnum {
 

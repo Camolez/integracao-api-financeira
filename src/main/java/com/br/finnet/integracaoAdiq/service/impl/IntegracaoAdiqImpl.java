@@ -1,6 +1,7 @@
 package com.br.finnet.integracaoAdiq.service.impl;
 
 
+import com.br.finnet.integracaoAdiq.domain.enums.CaptureTypeEnum;
 import com.br.finnet.integracaoAdiq.domain.enums.CurrencyEnum;
 import com.br.finnet.integracaoAdiq.domain.enums.TransactionTypeEnum;
 import com.br.finnet.integracaoAdiq.domain.models.request.PaymentModel;
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.Predicate;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 
 @Service
 public class IntegracaoAdiqImpl implements IntegracaoService {
@@ -31,28 +32,27 @@ public class IntegracaoAdiqImpl implements IntegracaoService {
     }
 
     @Override
-    public List<PaymentModel> findByFilter(String currencyCode, String captureType, String transactionType) {
+    public List<PaymentModel> findByFilter(CurrencyEnum currencyCode, CaptureTypeEnum captureType, TransactionTypeEnum transactionType) {
         return paymentRepository.findAll((Specification<PaymentModel>) (root, criteriaQuery, criteriaBuilder) -> {
             Predicate predicate  = criteriaBuilder.conjunction();
-            if(!currencyCode.isEmpty()){
+            if(Objects.nonNull(currencyCode)){
                 try{
-                    CurrencyEnum.valueOf(currencyCode.toUpperCase());
+//                    CurrencyEnum.valueOf(currencyCode.toUpperCase());
                     predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("currencyCode"),
-                            CurrencyEnum.valueOf(currencyCode.toUpperCase())));
+                            currencyCode));
                 }catch(IllegalArgumentException e){
                     return null;
                     //TODO VERIFICAR RETORNO
                 }
             }
-            if(!captureType.isEmpty()){
+            if(Objects.nonNull(captureType)){
                 predicate  = criteriaBuilder.and(predicate, criteriaBuilder.like(root.get("captureType"),
                         "%"+captureType+"%"));
             }
-            if(!transactionType.isEmpty()){
+            if(Objects.nonNull(transactionType)){
                 try{
-                    TransactionTypeEnum.valueOf(transactionType.toUpperCase());
                     predicate  = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("transactionType"),
-                            TransactionTypeEnum.valueOf(transactionType.toUpperCase())));
+                            transactionType));
                 }catch(IllegalArgumentException e){
                     return null;
                     //TODO VERIFICAR RETORNO

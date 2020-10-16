@@ -10,54 +10,28 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
-
 @Data
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "TRANSACTION")
 public class PaymentModel implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-//    @Column(name = "ID_TRANSACTION")
-    @JsonIgnore
-    private Integer id;
-    @Column(nullable = false)
-    @Basic(optional = false)
-    @Enumerated(EnumType.STRING)
-    private TransactionTypeEnum transactionType;
-    @Column(nullable = false)
+    @Pattern(regexp = "credit|debit", message = "O campo TransactionType deve ser debit ou credit")
+    private String transactionType;
     private Integer amount;
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private CurrencyEnum currencyCode;
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private ProductTypeEnum productType;
-    @Column(nullable = false)
+    private String currencyCode; //TODO ENUM PATTERN STRING
+    private String productType;
     private Integer installments;
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private CaptureTypeEnum captureType;
-    @Column(nullable = false)
+    private String captureType;
     private Boolean recurrent;
-    @Column(nullable = false)
-    private String statusPayment = "ATIVO";
-    @JsonFormat(pattern="yyyy-MM-dd")
-    @CreationTimestamp
-    private LocalDateTime datePayment;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "FK_CARDINFO")
-    private CardInfoModel cardInfoModel;
-
 }

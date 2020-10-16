@@ -93,6 +93,7 @@ public enum CurrencyEnum {
     ZIL("ZIL"),
     ZRX("ZRX");
 
+
     private String codCurrency;
 
     CurrencyEnum(String codCurrency) {

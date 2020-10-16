@@ -7,19 +7,13 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "ITEMS")
 public class ItemsModel implements Serializable {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idItem;
-//    private String id;
-//    private String description;
-//    private Integer amount;
-//    private Double ratePercent;
-//    private Integer rateAmount;
+    private String id;
+    private Integer amount;
+    private String description;
+    private Double ratePercent;
+    private Integer rateAmount;
 }

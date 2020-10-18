@@ -33,7 +33,7 @@ public class ControllerIntegracaoAdiq {
         return ResponseEntity.created(ServletUriComponentsBuilder.
                 fromCurrentRequest().
                 path("/{id}").
-                buildAndExpand(1).
+                buildAndExpand(id).
                 toUri()).
                 build();
     }

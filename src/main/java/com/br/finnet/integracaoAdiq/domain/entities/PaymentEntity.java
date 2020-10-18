@@ -1,11 +1,6 @@
 package com.br.finnet.integracaoAdiq.domain.entities;
 
 
-import com.br.finnet.integracaoAdiq.domain.enums.CaptureTypeEnum;
-import com.br.finnet.integracaoAdiq.domain.enums.CurrencyEnum;
-import com.br.finnet.integracaoAdiq.domain.enums.ProductTypeEnum;
-import com.br.finnet.integracaoAdiq.domain.enums.TransactionTypeEnum;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -41,6 +36,7 @@ public class PaymentEntity implements Serializable {
     private String city;
     private String state;
     private String country;
+    @Column(columnDefinition = "varchar(100) default 'ATIVO'", insertable = false)
     private String statusPayment = "ATIVO";
     @CreationTimestamp
     private LocalDateTime datePayment;

@@ -101,3 +101,11 @@ transação por: HEADER, PARAM e PATH.
  }
   
 ```
+
+**URL** -  http://localhost:8080/integracaoAdiq/findPayment
+ - Busca de pagamentos, por campos com valores fixos informados na documentação da Adiq: captureType, currencyCode ou transactionType. Porém método é aberto a adição de novos campos de busca.
+ 
+
+##### Metodo `GET`
+##### Retorno sucesso:`200`- _Busca realizada com sucesso_
+

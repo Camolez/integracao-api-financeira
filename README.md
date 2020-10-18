@@ -23,3 +23,81 @@ transação por: HEADER, PARAM e PATH.
  - JUnit
  - WireMoc
  - Feign
+ 
+## Endpoints
+
+
+**URL** -  http://localhost:8080/integracaoAdiq/findAll
+ - Lista todos os pagamentos realizados
+##### Metodo `GET`
+##### Retorno sucesso:**`200`
+ 
+**Exemplo requisição:**
+  ```
+[
+  {
+    "amount": 0,
+    "authorizationCode": "string",
+    "captureType": "string",
+    "city": "string",
+    "country": "string",
+    "currencyCode": "string",
+    "datePayment": "2020-10-18T20:45:34.565Z",
+    "documentNumber": "string",
+    "firstName": "string",
+    "id": 0,
+    "lastName": "string",
+    "orderNumber": "string",
+    "paymentId": "string",
+    "productType": "string",
+    "state": "string",
+    "statusPayment": "string",
+    "transactionType": "string"
+  }
+]
+```
+
+**URL** -  http://localhost:8080/integracaoAdiq/requestPayment
+ - Solicitação de pagamento
+##### Metodo `POST`
+##### Retorno sucesso:`200`
+##### Retorno erro:`400` - _Validar informações enviadas_
+   ```
+  {
+  "mensagem": "FAVOR INSERIR UM TOKEN VALIDO"
+  }
+  {
+    "field": "payment.currencyCode",
+    "message": "FAVOR INFORMAR UMA MODEDA VALIDA: BRL"
+  },
+  {
+    "field": "cardInfo.brand",
+    "message": "O campo brand deve conter visa, mastercard, amex ou elo"
+  },
+  {
+    "field": "payment.productType",
+    "message": "FAVOR INFORMAR UMA VALOR VALIDO: avista, debito, lojista OU emissor"
+  },
+  {
+    "field": "payment.captureType",
+    "message": "FAVOR INFORMAR UMA VALOR VALIDO: ac OU pa"
+  },
+  {
+    "field": "payment.transactionType",
+    "message": "FAVOR INFORMAR UM VALOR VALIDO: CREDIT OU DEBIT"
+  }
+```
+
+**URL** -  http://localhost:8080/integracaoAdiq/cancelPayment/{idPath} Ou http://localhost:8080/integracaoAdiq/cancelPayment
+
+ 
+ - Cancelamento lógico do pagamento
+##### Metodo `PATH`
+##### Retorno sucesso:`200`
+##### Retorno erro:`405` - _Pagamento não existente_
+   ```
+  {
+  "mensagem": "ID PAGAMENTO NÃO ENCONTRADO"
+ }
+  
+```

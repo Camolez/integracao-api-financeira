@@ -17,6 +17,9 @@ transação por: HEADER, PARAM e PATH.
 
 OBS: Todos os exemplos foram dados, considerando uma execução local.
 
+# Desenho da solução 
+![](Diagram.jpeg)
+
 ## Tecnologias
  - Spring Boot
  - Spring Data Jpa

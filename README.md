@@ -94,7 +94,7 @@ OBS: Todos os exemplos foram dados, considerando uma execução local.
 
  
  - Cancelamento lógico do pagamento
-##### Metodo `PATH`
+##### Metodo `PATCH`
 ##### Retorno sucesso:`200`
 ##### Retorno erro:`405` - _Pagamento não existente_
    ```

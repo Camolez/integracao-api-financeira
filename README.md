@@ -15,6 +15,8 @@ método de cancelamento seja flexível, pois nossos clientes utilizam ele de
 formas diferentes, ou seja, precisamos que seja possível cancelar a
 transação por: HEADER, PARAM e PATH.
 
+OBS: Todos os exemplos foram dados, considerando uma execução local.
+
 ## Tecnologias
  - Spring Boot
  - Spring Data Jpa
@@ -108,4 +110,10 @@ transação por: HEADER, PARAM e PATH.
 
 ##### Metodo `GET`
 ##### Retorno sucesso:`200`- _Busca realizada com sucesso_
+
+## Swagger
+ - Para visualizar visualizar a documentação swagger, basta subir a aplicação e acessar http://localhost:8080/swagger-ui/index.html 
+
+## Banco de dados H2
+ - Para acessar o banco de dados h2, basta subir a aplicação e acessar http://http://localhost:8080/h2-console/ 
 
